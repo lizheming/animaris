@@ -1,0 +1,18 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    ["@babel/preset-env", {
+      "target": {
+        "browsers": ["last 2 versions", "safari >= 7"]
+      }
+    }]
+  ],
+  "plugins": [
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": "css" 
+    }],
+    "@babel/plugin-proposal-object-rest-spread"
+  ]
+}

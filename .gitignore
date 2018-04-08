@@ -1,8 +1,6 @@
-# ---> Node
 # Logs
 logs
 *.log
-npm-debug.log*
 
 # Runtime data
 pids
@@ -13,7 +11,7 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
-coverage
+coverage/
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -21,10 +19,19 @@ coverage
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
-
 # Dependency directory
-# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
-node_modules
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules/
 
+# IDE config
+.idea
+
+# output
+output/
+output.tar.gz
+
+runtime/
+app/
+
+config.development.js
+adapter.development.js

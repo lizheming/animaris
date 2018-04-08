@@ -1,0 +1,15 @@
+{
+  "apps": [{
+    "name": "WebViewMock",
+    "script": "production.js",
+    "cwd": "/Users/lizheming/Desktop/workspace/360/WebViewMock",
+    "exec_mode": "fork",
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      
+    }
+  }]
+}

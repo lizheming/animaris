@@ -1,0 +1,70 @@
+{
+  "name": "WebViewMock",
+  "description": "webview api mock",
+  "version": "1.0.0",
+  "author": "lizheming <secretlzm007@gmail.com>",
+  "scripts": {
+    "compile": "webpack --mode=development",
+    "start": "node development.js",
+    "test": "THINK_UNIT_TEST=1 nyc ava test/ && nyc report --reporter=html",
+    "lint": "eslint src/",
+    "lint-fix": "eslint --fix src/"
+  },
+  "dependencies": {
+    "css-loader": "^0.28.11",
+    "less-loader": "^4.1.0",
+    "style-loader": "^0.20.3",
+    "think-cache": "^1.0.0",
+    "think-cache-file": "^1.0.8",
+    "think-logger3": "^1.0.0",
+    "think-model": "^1.0.0",
+    "think-model-mysql": "^1.0.0",
+    "think-session": "^1.0.0",
+    "think-session-file": "^1.0.5",
+    "think-view": "^1.0.0",
+    "think-view-nunjucks": "^1.0.1",
+    "thinkjs": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "@babel/preset-react": "^7.0.0-beta.44",
+    "ant-design-pro": "^1.2.1",
+    "antd": "^3.4.0",
+    "ava": "^0.18.0",
+    "babel-loader": "^8.0.0-beta.2",
+    "babel-plugin-import": "^1.7.0",
+    "eslint": "^4.2.0",
+    "eslint-config-think": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "less": "^3.0.1",
+    "nyc": "^7.0.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "think-watcher": "^3.0.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
+  },
+  "repository": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "readmeFilename": "README.md",
+  "thinkjs": {
+    "metadata": {
+      "name": "WebViewMock",
+      "description": "webview api mock",
+      "author": "lizheming <secretlzm007@gmail.com>",
+      "babel": false
+    },
+    "projectName": "WebViewMock",
+    "templateName": "standard",
+    "cacheTemplatePath": "/Users/lizheming/.think-templates/standard",
+    "clone": false,
+    "isMultiModule": false
+  }
+}

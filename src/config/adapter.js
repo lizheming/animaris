@@ -28,7 +28,7 @@ exports.cache = {
  * @type {Object}
  */
 exports.model = {
-  type: 'mysql',
+  type: 'mongo',
   common: {
     logConnect: isDev,
     logSql: isDev,
@@ -44,6 +44,13 @@ exports.model = {
     user: 'root',
     password: 'root',
     dateStrings: true
+  },
+  mongo: {
+    host: '127.0.0.1',
+    port: 27017,
+    user: '',
+    password: '',
+    database: 'webview_mock'
   }
 };
 

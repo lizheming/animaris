@@ -1,4 +1,5 @@
 const path = require('path');
+const routerREST = require('think-router-rest');
 const isDev = think.env === 'development';
 
 module.exports = [
@@ -14,14 +15,20 @@ module.exports = [
     enable: isDev,
     options: {
       root: path.join(think.ROOT_PATH, 'www'),
-      publicPath: /^\/(static|favicon\.ico)/
+      publicPath: /^\/(doc|static|favicon\.ico)/
     }
   },
   {
     handle: 'trace',
     enable: !think.isCli,
     options: {
-      debug: isDev
+      debug: isDev,
+      error(err) {
+        if (think.isPrevent(err)) {
+          return false;
+        }
+        console.error(err);
+      }
     }
   },
   {
@@ -35,6 +42,7 @@ module.exports = [
     handle: 'router',
     options: {}
   },
+  {handle: routerREST},
   'logic',
   'controller'
 ];

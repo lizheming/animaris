@@ -30,6 +30,7 @@ module.exports = class extends Base {
    * @apiGroup Doc
    * @apiVersion 0.0.1
    *
+   * @apiParam  {Object}  data  文档数据
    */
   postAction() {
   }

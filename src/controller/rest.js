@@ -1,3 +1,4 @@
+const path = require('path');
 const assert = require('assert');
 
 module.exports = class extends think.Controller {
@@ -18,8 +19,9 @@ module.exports = class extends think.Controller {
    * @return {String} [resource name]
    */
   getResource() {
-    return this.ctx.path.split('/').slice(-1)[0];
+    return this.ctx.controller.split('/').pop();
   }
+
   getId() {
     const id = this.get('id');
     if (id && (think.isString(id) || think.isNumber(id))) {

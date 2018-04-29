@@ -128,8 +128,11 @@ export default class extends PureComponent {
                       <Icon type="eye" /> 查看
                     </a>,
                     <div onClick={() => this.edit(item)}><Icon type="edit"/> 编辑</div>,
+                    <Link to={{pathname: `/mock/${item.id}`}}>
+                      <Icon type="setting" /> 设置
+                    </Link>,
                     <Popconfirm
-                      title="放弃删除？"
+                      title="确认删除？"
                       onConfirm={() => this.del(item)}
                     ><Icon type="delete"/> 删除
                     </Popconfirm>

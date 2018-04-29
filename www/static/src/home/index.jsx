@@ -11,6 +11,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Edit from './components/Edit';
 import Login from './components/Login';
+import Mock from './components/Mock';
 
 global.React = React;
 
@@ -22,6 +23,7 @@ render((
         <Auth.Route exact={true} path="/" component={Home} />
         <Route path="/login" component={Login} />
         <Auth.Route path="/d/:id" component={Edit} />
+        <Auth.Route path="/mock/:id" component={Mock} />
       </Layout.Content>
       <Layout.Footer style={{textAlign: 'center'}}>
         Animaris Platform ©2018 Created by Lizheming

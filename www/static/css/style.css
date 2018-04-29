@@ -135,3 +135,12 @@
 .login h1 {
   text-align: center;
 }
+.user-pop {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  color: #FFF;
+}
+.user-pop .ant-avatar {
+  margin-right: 10px;
+}

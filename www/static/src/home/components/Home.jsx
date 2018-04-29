@@ -124,6 +124,9 @@ export default class extends PureComponent {
                 <Card
                   hoverable
                   actions={[
+                    <a href={'/index/doc?id=' + item.id}>
+                      <Icon type="eye" /> 查看
+                    </a>,
                     <div onClick={() => this.edit(item)}><Icon type="edit"/> 编辑</div>,
                     <Popconfirm
                       title="放弃删除？"

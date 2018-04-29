@@ -14,5 +14,16 @@ export default {
       },
       method: 'POST'
     }, opts)).then(resp => resp.json());
+  },
+  put(url, data, opts = {}) {
+    opts.method = 'PUT';
+    return this.post(url, data, opts);
+  },
+  delete(url, opts = {}) {
+    return fetch(url, Object.assign({
+      cache: 'no-cache',
+      credentials: 'include',
+      method: 'DELETE'
+    }, opts)).then(resp => resp.json());
   }
 };

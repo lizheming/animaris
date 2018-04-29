@@ -9,19 +9,16 @@ import {
   Menu
 } from 'antd';
 import Ellipsis from 'ant-design-pro/lib/Ellipsis';
+import AddOrEditModal from './AddOrEditProductModal';
 import rq from './request';
 
 const { Meta } = Card;
 
 export default class extends PureComponent {
-  constructor(...props) {
-    super(...props);
-    this.state = this.initState();
-  }
+  state = this.initState();
 
-  async componentWillMount() {
-    const resp = await rq.get('/api/doc');
-    this.setState({list: resp.data});
+  componentWillMount() {
+    this.getList();
   }
 
   initState() {
@@ -34,8 +31,73 @@ export default class extends PureComponent {
         //   title: '快资讯',
         //   description: '信息流 SDK 客户端接口文档，主要是以 console.log() 交互为主。信息流 SDK 客户端接口文档，主要是以 console.log() 交互为主。信息流 SDK 客户端接口文档，主要是以 console.log() 交互为主。'
         // }
-      ]
+      ],
+      addOrEditModal: {
+        visible: false,
+        edit: false,
+        model: {}
+      }
     };
+  }
+
+  async getList() {
+    const resp = await rq.get('/api/doc');
+    if (!Array.isArray(resp.data)) {
+      return;
+    }
+
+    this.setState({list: resp.data.map(item => ({id: item._id, ...item.data}))});
+  }
+
+  showAddModal = () => {
+    this.setState({addOrEditModal: {
+      visible: true,
+      edit: false,
+      model: {}
+    }});
+  }
+
+  handleCancel = () => {
+    this.setState({addOrEditModal: {
+      visible: false,
+      edit: false,
+      model: {}
+    }});
+  }
+
+  handleOk = () => {
+    const form = this.formRef.props.form;
+    form.validateFields(async(err, values) => {
+      if (err) {
+        return;
+      }
+
+      const {id} = this.state.addOrEditModal.model;
+      let resp;
+      if (id) {
+        resp = await rq.put(`/api/doc/${id}`, {data: values});
+      } else {
+        resp = await rq.post('/api/doc', {data: values});
+      }
+      if (resp.errno) {
+        return;
+      }
+
+      this.getList();
+
+      form.resetFields();
+      this.handleCancel();
+    });
+  }
+
+  saveFormRef = formRef => {
+    this.formRef = formRef;
+  }
+
+  edit = product => {
+    this.setState({addOrEditModal: {
+      visible: true, edit: true, model: product
+    }});
   }
 
   render() {
@@ -53,8 +115,8 @@ export default class extends PureComponent {
                 <Card
                   hoverable
                   actions={[
-                    <div><Icon type="edit" /> 编辑</div>,
-                    <div><Icon type="delete" /> 删除</div>
+                    <div onClick={() => this.edit(item)}><Icon type="edit"/> 编辑</div>,
+                    <div><Icon type="delete" onClick={() => this.del(item)}/> 删除</div>
                   ]}
                 >
                   <Meta
@@ -70,12 +132,21 @@ export default class extends PureComponent {
               </List.Item>
             ) : (
               <List.Item>
-                <Button type="dashed" className="newButton">
+                <Button type="dashed" className="newButton" onClick={this.showAddModal}>
                   <Icon type="plus" /> 新增产品
                 </Button>
               </List.Item>
             )
           }
+        />
+
+        <AddOrEditModal
+          wrappedComponentRef={this.saveFormRef}
+          visible={this.state.addOrEditModal.visible}
+          onCancel={this.handleCancel}
+          onOk={this.handleOk}
+          isEdit={this.state.addOrEditModal.edit}
+          model={this.state.addOrEditModal.model}
         />
       </div>
     );

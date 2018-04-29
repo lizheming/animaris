@@ -1,5 +1,5 @@
 {
-  "name": "WebViewMock",
+  "name": "Animaris",
   "description": "webview api mock",
   "version": "1.0.0",
   "author": "lizheming <secretlzm007@gmail.com>",
@@ -63,19 +63,19 @@
   "readmeFilename": "README.md",
   "thinkjs": {
     "metadata": {
-      "name": "WebViewMock",
+      "name": "Animaris",
       "description": "webview api mock",
       "author": "lizheming <secretlzm007@gmail.com>",
       "babel": false
     },
-    "projectName": "WebViewMock",
+    "projectName": "Animaris",
     "templateName": "standard",
     "cacheTemplatePath": "/Users/lizheming/.think-templates/standard",
     "clone": false,
     "isMultiModule": false
   },
   "apidoc": {
-    "title": "WebViewMock API 接口文档",
+    "title": "Animaris API 接口文档",
     "url": "/api",
     "sampleUrl": "/api"
   }

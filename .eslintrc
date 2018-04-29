@@ -1,3 +1,17 @@
 {
-  "extends": "think"
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "extends": [
+    "think"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
 }

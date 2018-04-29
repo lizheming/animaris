@@ -72,10 +72,10 @@ export default class extends PureComponent {
         return;
       }
 
-      const {id} = this.state.addOrEditModal.model;
+      const {model} = this.state.addOrEditModal;
       let resp;
-      if (id) {
-        resp = await rq.put(`/api/doc/${id}`, {data: values});
+      if (model.id) {
+        resp = await rq.put(`/api/doc/${model.id}`, {data: {...model, ...values}});
       } else {
         resp = await rq.post('/api/doc', {data: values});
       }

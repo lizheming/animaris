@@ -13,6 +13,7 @@
       "libraryDirectory": "es",
       "style": "css" 
     }],
-    "@babel/plugin-proposal-object-rest-spread"
+    "@babel/plugin-proposal-object-rest-spread",
+    "transform-class-properties"
   ]
 }

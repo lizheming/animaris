@@ -8,7 +8,7 @@ export default function(props) {
   return (
     <Layout>
       <Layout.Header>
-        <div className="logo">WebView Mock</div>
+        <div className="logo">Animaris</div>
         <Menu
           theme="dark"
           mode="horizontal"

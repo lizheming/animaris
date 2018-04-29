@@ -85,7 +85,11 @@ exports.view = {
     extname: '.html'
   },
   nunjucks: {
-    handle: nunjucks
+    handle: nunjucks,
+    beforeRender(env, nunjucks) {
+      env.addGlobal('think', think);
+      env.addGlobal('JSON', JSON);
+    }
   }
 };
 

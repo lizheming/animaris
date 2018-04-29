@@ -44,5 +44,10 @@ module.exports = [
   },
   {handle: routerREST},
   'logic',
-  'controller'
+  {
+    handle: 'controller',
+    options: {
+      emptyController: 'index'
+    }
+  }
 ];

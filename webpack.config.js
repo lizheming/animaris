@@ -5,7 +5,7 @@ const path = require('path');
 const src = path.join(__dirname, 'www/static/src');
 module.exports = {
   entry: {
-    home: path.join(src, 'home/index.jsx')
+    home: ['babel-polyfill', path.join(src, 'home/index.jsx')]
   },
   output: {
     path: path.join(src, '../js'),

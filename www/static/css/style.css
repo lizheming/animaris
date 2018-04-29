@@ -1,0 +1,137 @@
+
+.ellipsis {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  height: 64px;
+}
+
+.ant-btn.newButton {
+  background-color: #fff;
+  border-color: #d9d9d9;
+  border-radius: 2px;
+  color: rgba(0,0,0,.45);
+  width: 100%;
+  height: 185px;
+}
+
+.logo {
+  /* width: 120px; */
+  height: 31px;
+  /* background: rgba(255,255,255,.2); */
+  margin: 16px 24px 16px 0;
+  float: left;
+  color: #FFF;
+  font-size: 32px;
+  line-height: 32px;
+}
+
+.editable-cell {
+  position: relative;
+}
+
+.editable-cell-input-wrapper,
+.editable-cell-text-wrapper {
+  padding-right: 24px;
+}
+
+.editable-cell-text-wrapper {
+  padding: 5px 24px 5px 5px;
+}
+
+.editable-cell-icon,
+.editable-cell-icon-check {
+  position: absolute;
+  right: 0;
+  width: 20px;
+  cursor: pointer;
+}
+
+.editable-cell-icon {
+  line-height: 18px;
+  display: none;
+}
+
+.editable-cell-icon-check {
+  line-height: 28px;
+}
+
+.editable-cell:hover .editable-cell-icon {
+  display: inline-block;
+}
+
+.editable-cell-icon:hover,
+.editable-cell-icon-check:hover {
+  color: #108ee9;
+}
+
+.editable-add-btn {
+  margin-bottom: 8px;
+}
+
+.editable-row-operations a + a {
+  margin-left: 10px;
+}
+
+
+.api-name, .api-name:focus,
+.api-desc, .api-desc:focus,
+.api-format, .api-format:focus,
+.api-callback, .api-callback:focus {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  border-radius: 0;
+  box-shadow: none;
+} 
+
+.api-name, .api-name:focus {
+  font-size: 30px;
+  line-height: 80px;
+  height: 80px;
+  padding: 2.25rem 0;
+  margin-bottom: 20px;
+}
+
+.api-desc, .api-desc:focus {
+  font-size: 20px;
+  min-height: 150px;
+  padding: 1.25rem 0;
+}
+
+
+.api-format, .api-format:forcus,
+.api-callback, .api-callback:forcus  {
+  font-size: 16px;
+  padding: 2rem 0;
+}
+.api-params {
+  padding: 30px 0;
+}
+
+.api-params label, .api-resp>label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sub-menu-title .sub-menu-opt {
+  display: none;
+  margin-left: 10px;
+}
+.sub-menu-title:hover .sub-menu-opt {
+  display: inline-block;
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.login {
+  margin: 200px auto auto;
+  width: 400px;
+}
+.login h1 {
+  text-align: center;
+}

@@ -94,9 +94,17 @@ export default class extends PureComponent {
         <p>
           <label>响应内容：</label>
           <Input.TextArea 
-            value={pane.content} 
+            value={typeof pane.content === 'string' ? pane.content : JSON.stringify(pane.content, null, '\t')} 
             style={{minHeight: '600px'}}
-            onChange={e => this.updateData(pane.key, 'content', e.target.value)} 
+            onChange={e => {
+              let data = e.target.value;
+              try {
+                data = JSON.parse(data);
+              } catch(e) {
+                console.error('[error][JSON.parse]', data);
+              }
+              this.updateData(pane.key, 'content',data);
+            }} 
           />
         </p>
       </>

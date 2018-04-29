@@ -23,7 +23,8 @@ git clone git@github.com:lizheming/animaris.git
 
 ```
 vim src/config/adapter.js:48
-npm start
+npm install
+npm run webpack && npm start
 ```
 
 启动后访问 `http://localhost:8360` 即可访问到程序。

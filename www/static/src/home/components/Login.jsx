@@ -1,5 +1,4 @@
 import {PureComponent} from 'react';
-import {Link} from 'react-router-dom';
 import {Alert} from 'antd';
 import Login, {UserName, Password, Submit} from 'ant-design-pro/lib/Login';
 import rq from './request';

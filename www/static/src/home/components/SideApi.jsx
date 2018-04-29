@@ -1,5 +1,4 @@
 import { PureComponent } from 'react';
-import {render} from 'react-dom';
 import {
   Menu,
   Icon,

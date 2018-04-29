@@ -5,8 +5,7 @@ import {
   Icon,
   Avatar,
   List,
-  Layout,
-  Menu
+  Popconfirm
 } from 'antd';
 import Ellipsis from 'ant-design-pro/lib/Ellipsis';
 import AddOrEditModal from './AddOrEditProductModal';
@@ -100,6 +99,15 @@ export default class extends PureComponent {
     }});
   }
 
+  del = async product => {
+    const resp = await rq.delete(`/api/doc/${product.id}`);
+    if (resp.errno) {
+      return;
+    }
+
+    this.getList();
+  }
+
   render() {
     const {loading, list} = this.state;
     return (
@@ -116,7 +124,11 @@ export default class extends PureComponent {
                   hoverable
                   actions={[
                     <div onClick={() => this.edit(item)}><Icon type="edit"/> 编辑</div>,
-                    <div><Icon type="delete" onClick={() => this.del(item)}/> 删除</div>
+                    <Popconfirm
+                      title="放弃删除？"
+                      onConfirm={() => this.del(item)}
+                    ><Icon type="delete"/> 删除
+                    </Popconfirm>
                   ]}
                 >
                   <Meta

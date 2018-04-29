@@ -7,6 +7,7 @@ import {
   List,
   Popconfirm
 } from 'antd';
+import {Link} from 'react-router-dom';
 import Ellipsis from 'ant-design-pro/lib/Ellipsis';
 import AddOrEditModal from './AddOrEditProductModal';
 import rq from './request';
@@ -133,7 +134,7 @@ export default class extends PureComponent {
                 >
                   <Meta
                     avatar={<Avatar src={item.avatar} />}
-                    title={<a href="#">{item.title}</a>}
+                    title={<Link to={{pathname: `/d/${item.id}`}}>{item.title}</Link>}
                     description={
                       <Ellipsis tooltip className="ellipsis" lines={3}>
                         {item.description}

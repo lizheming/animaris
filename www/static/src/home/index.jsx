@@ -21,7 +21,7 @@ render((
       <Layout.Content style={{ padding: '30px 50px 0' }}>
         <Auth.Route exact={true} path="/" component={Home} />
         <Route path="/login" component={Login} />
-        <Auth.Route path="/doc/:id" component={Edit} />
+        <Auth.Route path="/d/:id" component={Edit} />
       </Layout.Content>
       <Layout.Footer style={{textAlign: 'center'}}>
         Animaris Platform ©2018 Created by Lizheming

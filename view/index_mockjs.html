@@ -1,0 +1,82 @@
+const api = {{JSON.stringify(doc) | safe}};
+
+class Mock {
+  constructor(text) {
+    this.data = this.parse(text);
+    this.run();
+  }
+
+  parse(text) {
+    const matches = text.trim().match(/^\$(\w+)\:\s*({.+})$/i);
+    if (!Array.isArray(matches)) {
+      return false;
+    }
+
+    const [_, name, args] = matches;
+
+    const cbReg = /^{(callback):\s*([^\s]+)\s*}$/i;
+    if (cbReg.test(args)) {
+      const [_, argName, argVal] = args.match(cbReg);
+      return {
+        name,
+        args: {
+          [argName]: argVal
+        }
+      };
+    }
+
+    const result = {name};
+    try {
+      result.args = JSON.parse(`(${args})`);
+    } catch (e) {
+      result.args = args;
+    }
+
+    return result;
+  }
+
+  run() {
+    if (!this.data) {
+      return;
+    }
+
+    this.log(this.data);
+    const index = api.findIndex(({name}) => name === this.data.name);
+    if (index === -1) {
+      return;
+    }
+    // TODO: 校验参数格式
+
+    // 若需要执行回调就执行回调
+    // 动态指定的
+    const {callback} = this.data.args;
+    if (callback && typeof window[callback] === 'function') {
+      window[callback](api[index].resp);
+    }
+
+    // 固定回调的
+    if (api[index].callback && typeof window[api[index].callback] === 'function') {
+      window[api[index].callback](api[index].resp);
+    }
+  }
+
+  log(...args) {
+    if (!console._debug) {
+      return;
+    }
+
+    return console.warn(`[APIMock] --`, ...args);
+  }
+}
+
+console._log = console.log;
+console.log = function(text, ...args) {
+  new Mock(text);
+  return console._log(text, ...args);
+};
+
+console._debug = true;
+// console.log('$isLogin:{callback: $COMMENT_NATIVE_CALLBACK100}');
+// console.log('$apullRequestRelateAd:{"requestId":"relate_ad","mv_ext":{"gnid":"99258f4635a05b5d0"}}');
+
+// http://dev.m.look.360.cn:8082/transcoding?url=http%3A%2F%2Fzm.news.so.com%2F5c4f9e415bc9765aa7f3a59e9837fd07&check=dcf663552b9e7f8a&uid=73tpefn6d8b6nwdpir7ao04h1kjprt4z&sign=wap&market=nh00002&stype=portal&tj_cmode=wap&v=1&sv=1&templetctl=7&360newsdetail=1&articlety=zmt&hsitetype=1&ucheck=6aa803dc5abc52b4a192421579c78519&hscmt=1&mock=1

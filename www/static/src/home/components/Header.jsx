@@ -49,7 +49,7 @@ export default props => {
           </Menu.Item>
         )}
       </Menu>
-      <div class="user-pop">
+      <div className="user-pop">
         <Dropdown overlay={<Menu>
           <Menu.Item disabled>
             <Icon type="user" />个人中心

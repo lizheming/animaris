@@ -17,7 +17,7 @@ Animaris 是一个移动端 WebView 接口文档以及接口 Mock 的解决方�
 
 ## 安装
 
-首先你需要确保有 Node.js v8+ 以及 MongoDB v2+ 的环境，之后克隆仓库：
+首先你需要确保有 Node.js v8+，之后克隆仓库：
 
 ```
 git clone git@github.com:lizheming/animaris.git

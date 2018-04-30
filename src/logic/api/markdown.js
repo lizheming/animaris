@@ -1,5 +1,4 @@
-const Base = require('./base');
-module.exports = class extends Base {
+module.exports = class extends think.Logic {
   /**
    * @api {GET} /markdown/:id 获取文档的 markdown 格式
    * @apiGroup Doc

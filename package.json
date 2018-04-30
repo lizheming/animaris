@@ -55,7 +55,7 @@
     "webpack": "^4.5.0",
     "webpack-cli": "^2.0.14"
   },
-  "repository": "",
+  "repository": "https://github.com/lizheming/animaris.git",
   "license": "MIT",
   "engines": {
     "node": ">=6.0.0"

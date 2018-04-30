@@ -1,53 +1,61 @@
 # Animaris
 
-使用 ThinkJS + MongoDB + React + Antd 开发的移动端 WebView 接口文档系统
+Documentation and Mock for Mobile WebView APIs base on ThinkJS & MongoDB & React & Antd.
 
-## 简介
+[简体中文文档](https://github.com/lizheming/animaris/blob/master/README_zh-CN.md)
 
-Animaris 是一个移动端 WebView 接口文档以及接口 Mock 的解决方案，服务端基于 [ThinkJS](https://thinkjs.org) 和 MongoDB，前端使用了 React 和 Antd，另外接口文档部分使用了 Docsify 做适配。该程序主要是解决以下两个问题：
+## Introduction
 
-1. 移动端接口编写并生成可视化文档
-2. 移动端接口前端开发环境模拟问题
+Animaris is a system to resolve problem about mobile webview api documentation and mock. We use [ThinkJS](https://thinkjs.org) and MongoDB for server, React and [Antd](https://ant.design) for front end, [Docsify](http://docsify.js.org) for documentation at last. Animaris fixed follow questions:
 
-移动端页面开发有时候会依赖客户端的接口，此时我们就必须连接真机或者模拟器进行调试，这样颇为麻烦。目前市面上常见的接口 Mock 程序都是模拟 HTTP 服务端请求接口，很少有针对客户端接口进行模拟的。
+1. A visual documentation for Mobile WebView API.
+2. How mock Mobile WebView API.
 
-## 安装
+If your Mobile web page depend on WebView API, you should inspect to simulator or physical machine. It's very terrible. All we know api mock program usually support server http api, there has little mock webview api program.
 
-首先你需要确保有 Node.js v8+ 以及 MongoDB v2+ 的环境，之后克隆仓库：
+## Installation
+
+First of all you should have Note.js v8+ and MongoDB v2+, and then clone repo:
 
 ```
 git clone git@github.com:lizheming/animaris.git
 ```
 
-修改 `src/config/adapter.js` 文件中的 mongo 配置后启动即可
+Modify `src/config/adapter.js` with your mongo config and then install dependencies.
 
 ```
-vim src/config/adapter.js:48
+vim +48 src/config/adapter.js
 npm install
-npm run webpack && npm start
 ```
 
-启动后访问 `http://localhost:8360` 即可访问到程序。
+Then compile js and start server.
 
-## 文档
+```
+npm run webpack
+npm start
+```
 
-接口文档见：<http://localhost:8360/doc/>
+After start, you can open `http://localhost:8360` to view program.
 
-## 名字
+## Documentation
 
-Animaris 意为仿生兽，与接口模拟有异曲同工之妙。
+After start, you can see RESTful APIs documentation at <http://localhost:8360/doc/>.
 
-## 截图
+## Name
 
-文档列表页
+Animaris means machines like humans, that's function same as Mock.
+
+## Screenshot
+
+Documentation List
 
 ![](https://p0.ssl.qhimg.com/t0194fc9409ff5770e2.jpg)
 
-文档查看页
+Documentation view page
 
 ![](https://p0.ssl.qhimg.com/t01e4a2090ed1f5aed5.jpg)
 
-Mock数据配置页
+Mock data setting page
 
 ![](https://p0.ssl.qhimg.com/t015a770a88a74fa694.jpg)
 

@@ -1,5 +1,9 @@
 # Animaris
 
+[![node version required](https://img.shields.io/badge/node-%3E%3D8.9.4-red.svg?style=flat-square)](https://github.com/lizheming/animaris)
+[![License](https://img.shields.io/github/license/lizheming/animaris.svg?colorB=f48041&style=flat-square)](https://github.com/lizheming/animaris/blob/master/LICENSE)
+[![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg?style=flat-square)](https://discord.gg/ZCD8yc5)
+
 Documentation and Mock for Mobile WebView APIs base on ThinkJS & MongoDB & React & Antd.
 
 [简体中文文档](https://github.com/lizheming/animaris/blob/master/README_zh-CN.md)

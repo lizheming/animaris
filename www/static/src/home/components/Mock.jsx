@@ -52,7 +52,7 @@ export default class extends PureComponent {
     if (result.errno) {
       return false;
     }
-    this.setState({data});
+    this.setState({data, random: Math.random()});
   }
 
   renderAPI = (api) => {
@@ -73,7 +73,7 @@ export default class extends PureComponent {
   }
 
   render() {
-    const {iframe} = this.state;
+    const {iframe, random} = this.state;
     const {interfaces} = this.state.data;
     const apis = interfaces.filter(api => Array.isArray(api.resp) && api.resp.length && api.resp[0].content).map(this.renderAPI);
     return (
@@ -86,7 +86,7 @@ export default class extends PureComponent {
               onSearch={value => this.setState({iframe: value})}
             />
           </p>
-          <iframe src={iframe} style={{width: 400, height: 700, border: '1px solid #ddd'}}></iframe>
+          <iframe key={random} src={iframe} style={{width: 400, height: 700, border: '1px solid #ddd'}}></iframe>
         </div>
         <div className="right">
           <table>

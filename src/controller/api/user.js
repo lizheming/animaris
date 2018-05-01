@@ -15,11 +15,13 @@ module.exports = class extends BaseRest {
       data = await this.modelInstance.where({[pk]: this.id}).find();
       return this.success(data);
     } else if (keyword) {
+      const reg = new RegExp(keyword, 'i');
       this.modelInstance = this.modelInstance.where({
-        name: ['like', '%' + keyword + '%'],
-        email: ['like', '%' + keyword + '%'],
-        display_name: ['like', '%' + keyword + '%'],
-        _logic: 'OR'
+        '$or': [
+          {name: reg},
+          {email: reg},
+          {display_name: reg}
+        ]
       });
     }
     data = await this.modelInstance.page([page, pagesize]).countSelect();

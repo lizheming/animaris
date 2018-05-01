@@ -10,6 +10,7 @@ import {
 import {Link} from 'react-router-dom';
 import Ellipsis from 'ant-design-pro/lib/Ellipsis';
 import AddOrEditModal from './AddOrEditProductModal';
+import UserModal from './AddOrEditUserModal';
 import rq from './request';
 
 const { Meta } = Card;
@@ -36,6 +37,12 @@ export default class extends PureComponent {
         visible: false,
         edit: false,
         model: {}
+      },
+      userModal: {
+        visible: false,
+        mdoel: {
+          users: []
+        }
       }
     };
   }
@@ -57,12 +64,37 @@ export default class extends PureComponent {
     }});
   }
 
+  showUserModal = async(id) => {
+    const resp = await rq.get(`/api/doc/${id}/user`);
+    const users = resp.data;
+    this.setState({
+      userModal: {
+        visible: true,
+        model: {
+          id,
+          users
+        }
+      }
+    });
+  }
+
   handleCancel = () => {
     this.setState({addOrEditModal: {
       visible: false,
       edit: false,
       model: {}
     }});
+  }
+
+  handleUserModalCancel = () => {
+    this.setState({
+      userModal: {
+        visible: false,
+        model: {
+          users: []
+        }
+      }
+    });
   }
 
   handleOk = () => {
@@ -87,6 +119,25 @@ export default class extends PureComponent {
 
       form.resetFields();
       this.handleCancel();
+    });
+  }
+
+  handleUserModalOk = () => {
+    const form = this.userFormRef.props.form;
+    form.validateFields(async(err, values) => {
+      if (err) {
+        return null;
+      }
+
+      const users = values.users.map(user => user.key);
+      const {model} = this.state.userModal;
+      const resp = await rq.put(`/api/doc/${model.id}/user`, {
+        user_ids: users.join()
+      });
+
+      this.getList();
+      form.resetFields();
+      this.handleUserModalCancel();
     });
   }
 
@@ -131,6 +182,9 @@ export default class extends PureComponent {
                     <Link to={{pathname: `/mock/${item.id}`}}>
                       <Icon type="setting" /> 设置
                     </Link>,
+                    <div onClick={() => this.showUserModal(item.id)}>
+                      <Icon type="setting" /> 管理
+                    </div>,
                     <Popconfirm
                       title="确认删除？"
                       onConfirm={() => this.del(item)}
@@ -166,6 +220,13 @@ export default class extends PureComponent {
           onOk={this.handleOk}
           isEdit={this.state.addOrEditModal.edit}
           model={this.state.addOrEditModal.model}
+        />
+        <UserModal
+          wrappedComponentRef={formRef => this.userFormRef = formRef}
+          visible={this.state.userModal.visible}
+          onCancel={this.handleUserModalCancel}
+          onOk={this.handleUserModalOk}
+          model={this.state.userModal.model}
         />
       </div>
     );

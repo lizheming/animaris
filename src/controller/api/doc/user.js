@@ -20,7 +20,8 @@ module.exports = class extends BaseRest {
   }
 
   async putAction() {
-    const {id: doc_id, user_ids} = this.get();
+    const {id: doc_id} = this.get();
+    const {user_ids} = this.post();
 
     const data = user_ids.map(user_id => ({doc_id, user_id}));
     await this.mongo('doc_user').where({doc_id}).delete();

@@ -5,7 +5,9 @@ import {
   Icon,
   Avatar,
   List,
-  Popconfirm
+  Popconfirm,
+  Dropdown,
+  Menu
 } from 'antd';
 import {Link} from 'react-router-dom';
 import Ellipsis from 'ant-design-pro/lib/Ellipsis';
@@ -178,18 +180,32 @@ export default class extends PureComponent {
                     <a href={'/index/doc?id=' + item.id}>
                       <Icon type="eye" /> 查看
                     </a>,
-                    <div onClick={() => this.edit(item)}><Icon type="edit"/> 编辑</div>,
                     <Link to={{pathname: `/mock/${item.id}`}}>
                       <Icon type="setting" /> 设置
                     </Link>,
-                    <div onClick={() => this.showUserModal(item.id)}>
-                      <Icon type="setting" /> 管理
-                    </div>,
-                    <Popconfirm
-                      title="确认删除？"
-                      onConfirm={() => this.del(item)}
-                    ><Icon type="delete"/> 删除
-                    </Popconfirm>
+                    <Dropdown overlay={<Menu>
+                      <Menu.Item key="edit">
+                        <span onClick={() => this.edit(item)}>
+                          <Icon type="edit"/> 编辑信息
+                        </span>
+                      </Menu.Item>
+                      <Menu.Divider />
+                      <Menu.Item key="member">
+                        <span onClick={() => this.showUserModal(item.id)}>
+                          <Icon type="user"/> 成员管理
+                        </span>
+                      </Menu.Item>
+                      <Menu.Divider />
+                      <Menu.Item key="delete">
+                        <Popconfirm
+                          title="确认删除？"
+                          onConfirm={() => this.del(item)}
+                        ><Icon type="delete"/> 删除产品
+                        </Popconfirm>
+                      </Menu.Item>
+                    </Menu>}>
+                      <span><Icon type="ellipsis" /> 更多</span>
+                    </Dropdown>
                   ]}
                 >
                   <Meta

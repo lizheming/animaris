@@ -10,7 +10,7 @@ module.exports = class extends think.Controller {
     this.userInfo = userInfo;
     if (!this.isAjax()) {
       this.assign('userInfo', {
-        id: userInfo.id,
+        id: userInfo._id,
         name: userInfo.name
       });
     }

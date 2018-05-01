@@ -13,7 +13,10 @@ module.exports = class extends think.Controller {
     assert(think.isFunction(this.model), 'this.model must be a function');
     this.modelInstance = this.mongo(this.resource);
   }
-  __before() {}
+  async __before() {
+    const userInfo = await this.session('userInfo') || {};
+    this.userInfo = userInfo;
+  }
   /**
    * get resource
    * @return {String} [resource name]

@@ -87,7 +87,7 @@ ${JSON.stringify(api.resp[0].content, null, '  ')}
         result.push(down.h('参数说明：', 5));
         result.push(down.args(api.args.sort((a, b) => {
           const aRequired = a.required !== false;
-          const bRequired = a.required !== false;
+          const bRequired = b.required !== false;
           if (aRequired === bRequired) {
             return 0;
           }

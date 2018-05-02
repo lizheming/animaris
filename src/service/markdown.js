@@ -85,9 +85,23 @@ ${JSON.stringify(api.resp[0].content, null, '  ')}
 
       if (api.args.length) {
         result.push(down.h('参数说明：', 5));
-        result.push(down.args(api.args.map(arg => ([
+        result.push(down.args(api.args.sort((a, b) => {
+          const aRequired = a.required !== false;
+          const bRequired = a.required !== false;
+          if (aRequired === bRequired) {
+            return 0;
+          }
+
+          if (aRequired && !bRequired) {
+            return -1;
+          }
+
+          if (!aRequired && bRequired) {
+            return 1;
+          }
+        }).map(arg => ([
           arg.name,
-          arg.require === false ? 'N' : 'Y',
+          arg.required === false ? 'N' : 'Y',
           arg.type,
           arg.description || '无'
         ]))));

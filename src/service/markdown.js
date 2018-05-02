@@ -40,8 +40,8 @@ module.exports = class extends think.Service {
     }, {}) : {};
 
     // 调用格式和普通格式不一样的时候
-    if (api.callFormat) {
-      return `console.log('${this.callFormatRender(api.callFormat, args)}');`;
+    if (api.format) {
+      return `console.log('${this.callFormatRender(api.format, args)}');`;
     }
 
     if (args.callback) {

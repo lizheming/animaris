@@ -16,6 +16,7 @@ const OPTIONS = {
   integer: '整型',
   string: '字符串',
   boolean: '布尔值',
+  array: '数组',
   object: '对象',
   callback: '回调'
 };

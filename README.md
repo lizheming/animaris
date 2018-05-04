@@ -19,7 +19,7 @@ If your Mobile web page depend on WebView API, you should inspect to simulator o
 
 ## Installation
 
-First of all you should have Note.js v8+, and then clone repo:
+First of all you should have Node.js v8+, and then clone repo:
 
 ```
 git clone git@github.com:lizheming/animaris.git

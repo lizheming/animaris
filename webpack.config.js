@@ -1,6 +1,6 @@
 const path = require('path');
 // const webpack = require('webpack');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const src = path.join(__dirname, 'www/static/src');
 module.exports = {
@@ -39,11 +39,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader'
-        }]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {loader: 'css-loader', options: {minimize: true}}
+          ]
+        })
       },
 
       {
@@ -106,10 +107,6 @@ module.exports = {
     //   name: 'common',
     //   filename: 'common.js'
     // }),
-    // new ExtractTextPlugin({
-    //   filename: '[name].css',
-    //   disable: false,
-    //   allChunks: true
-    // })
+    new ExtractTextPlugin('../css/base.css')
   ]
 };

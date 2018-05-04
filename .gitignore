@@ -36,3 +36,4 @@ app/
 config.development.js
 adapter.development.js
 www/static/js/home.js
+www/static/css/base.css

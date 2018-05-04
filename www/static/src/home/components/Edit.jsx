@@ -66,7 +66,7 @@ export default class extends PureComponent {
       interfaces.push(currentApi);
       newData.interfaces = interfaces;
       await rq.put(`/api/doc/${this.id}`, {data: newData});
-      return this.setState({data: newData});
+      return this.setState({data: newData, currentItem: currentApi.name});
     }
 
     const currentApiIndex = interfaces.findIndex(api => api.name === currentItem);

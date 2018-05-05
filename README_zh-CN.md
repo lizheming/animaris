@@ -1,6 +1,7 @@
 # Animaris
 
 [![node version required](https://img.shields.io/badge/node-%3E%3D8.9.4-red.svg?style=flat-square)](https://github.com/lizheming/animaris)
+[![docker size](https://images.microbadger.com/badges/image/lizheming/animaris.svg?style=flat-square)](https://microbadger.com/images/lizheming/animaris)
 [![License](https://img.shields.io/github/license/lizheming/animaris.svg?colorB=f48041&style=flat-square)](https://github.com/lizheming/animaris/blob/master/LICENSE)
 [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg?style=flat-square)](https://discord.gg/ZCD8yc5)
 

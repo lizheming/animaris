@@ -46,11 +46,11 @@ exports.model = {
     dateStrings: true
   },
   mongo: {
-    host: '127.0.0.1',
-    port: 27017,
-    user: '',
-    password: '',
-    database: 'webview_mock'
+    host: process.env.MONGO_HOST || '127.0.0.1',
+    port: process.env.MONGO_PORT || 27017,
+    user: process.env.MONGO_USER || '',
+    password: process.env.MONGO_PASSWORD || '',
+    database: process.env.MONGO_DATABASE || 'webview_mock'
   }
 };
 
@@ -98,7 +98,7 @@ exports.view = {
  * @type {Object}
  */
 exports.logger = {
-  type: isDev ? 'console' : 'dateFile',
+  type: (isDev || process.env.DOCKER) ? 'console' : 'dateFile',
   console: {
     handle: Console
   },

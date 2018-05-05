@@ -1,0 +1,21 @@
+version: '2'
+
+services: 
+  animaris:
+    image: lizheming/animaris:latest
+    ports: 
+      - 8360:8360
+    restart: always
+    environment:
+      # mongo database setting
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+      - MONGO_DATABASE=animaris
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_DATA_DIR=/data/db
+    volumes: 
+      - ./runtime/data:/data/db
+    command: mongod --smallfiles

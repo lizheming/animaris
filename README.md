@@ -19,7 +19,43 @@ If your Mobile web page depend on WebView API, you should inspect to simulator o
 
 ## Installation
 
-First of all you should have Node.js v8+, and then clone repo:
+### Docker Compose
+
+You can easily run animaris using [docker-compose](https://docs.docker.com/compose/). Project have an example config named `docker-compose.yml` for you. You can use it directly or config it.  It relies on a number of environment variables that you can set before running `docker-compose up`. The variables are described below.
+
+```yaml
+version: '2'
+
+services: 
+  animaris:
+    image: lizheming/animaris:latest
+    ports: 
+      - 8360:8360
+    restart: always
+    environment:
+      # mongo database setting
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+      - MONGO_DATABASE=animaris
+      # If your mongo setting have user auth you should add below enviroment
+      # - MONGO_USER=admin
+      # - MONGO_PASSWORD=admin
+
+  mongo:
+    image: mongo
+    environment:
+      # mongo data path
+      - MONGO_DATA_DIR=/data/db
+    volumes: 
+      - ./runtime/data:/data/db
+    command: mongod --smallfiles
+```
+
+After run `docker-compose -f docker-composer.yml up`, you can open `http://localhost:8360` to view program.
+
+### Normal Install
+
+If you don't use docker, you also can install it with common method. First of all you should have Node.js v8+, and then clone repo:
 
 ```
 git clone git@github.com:lizheming/animaris.git

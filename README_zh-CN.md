@@ -17,7 +17,42 @@ Animaris 是一个移动端 WebView 接口文档以及接口 Mock 的解决方�
 
 ## 安装
 
-首先你需要确保有 Node.js v8+，之后克隆仓库：
+### Docker Compose
+
+使用 [docker-compose](https://docs.docker.com/compose/) 你可以非常轻松的启动 Animaris。项目根目录有一个 `docker-compose.yml` 提供了默认的配置，你可以直接使用它启动也可以自行配置。项目依赖的一些环境变量会在下方进行说明：
+
+```yaml
+version: '2'
+
+services: 
+  animaris:
+    image: lizheming/animaris:latest
+    ports: 
+      - 8360:8360
+    restart: always
+    environment:
+      # mongo database setting
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+      - MONGO_DATABASE=animaris
+      # If your mongo setting have user auth you should add below enviroment
+      # - MONGO_USER=admin
+      # - MONGO_PASSWORD=admin
+
+  mongo:
+    image: mongo
+    environment:
+      # mongo data path
+      - MONGO_DATA_DIR=/data/db
+    volumes: 
+      - ./runtime/data:/data/db
+    command: mongod --smallfiles
+```
+修改好后直接执行 `docker-compose -f docker-composer.yml up` 就算启动成功了。之后访问 `http://localhost:8360` 即可访问到程序。
+
+### 普通安装
+
+如果你没有使用 docker，你也可以用正常的方法安装项目。首先你需要确保有 Node.js v8+，之后克隆仓库：
 
 ```
 git clone git@github.com:lizheming/animaris.git

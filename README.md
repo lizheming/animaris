@@ -1,12 +1,30 @@
-# Animaris
+<div align="center">
+  <a href="https://github.com/lizheming/animaris">
+    <img width="315" heigth="170" src="https://s1.ssl.qhres.com/static/5b0f0e68ca7e0ae1.svg">
+  </a>  
 
-[![node version required](https://img.shields.io/badge/node-%3E%3D8.9.4-red.svg?style=flat-square)](https://github.com/lizheming/animaris)
-[![License](https://img.shields.io/github/license/lizheming/animaris.svg?colorB=f48041&style=flat-square)](https://github.com/lizheming/animaris/blob/master/LICENSE)
-![MicroBadger Size](https://img.shields.io/microbadger/image-size/lizheming/animaris.svg?style=flat-square&logo=dockbit)
-![MicroBadger Layers](https://img.shields.io/microbadger/layers/lizheming/animaris.svg?style=flat-square&logo=dockbit)
-[![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg?style=flat-square&logo=discord)](https://discord.gg/ZCD8yc5)
+  <h1>Animaris</h1>
 
-Documentation and Mock for Mobile WebView APIs base on ThinkJS & MongoDB & React & Antd.
+  <div>
+    <a href="https://github.com/lizheming/animaris">
+      <img src="https://img.shields.io/badge/node-%3E%3D8.9.4-red.svg?style=flat-square" alt="node version required" />
+    </a>
+    <a href="https://github.com/lizheming/animaris/blob/master/LICENSE">
+      <img src="https://img.shields.io/github/license/lizheming/animaris.svg?colorB=f48041&style=flat-square" alt="License">
+    </a>
+    <a href="https://hub.docker.com/r/lizheming/animaris">
+      <img src="https://img.shields.io/microbadger/image-size/lizheming/animaris.svg?style=flat-square&logo=dockbit" alt="MicroBadger Size">
+    </a>
+    <a href="https://hub.docker.com/r/lizheming/animaris">
+      <img src="https://img.shields.io/microbadger/layers/lizheming/animaris.svg?style=flat-square&logo=dockbit" alt="MicroBadger Layers">
+    </a>
+    <a href="https://discord.gg/ZCD8yc5">
+      <img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg?style=flat-square&logo=discord" alt="Chat">
+    </a>
+  </div>
+
+  <p>Documentation and Mock for Mobile WebView APIs base on ThinkJS & MongoDB & React & Antd.</p>
+</div>
 
 [简体中文文档](https://github.com/lizheming/animaris/blob/master/README_zh-CN.md)
 

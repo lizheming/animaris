@@ -1,7 +1,7 @@
 import {PureComponent} from 'react';
 import {Alert} from 'antd';
 import Login, {UserName, Password, Submit} from 'ant-design-pro/lib/Login';
-import rq from './request';
+import rq from './components/request';
 
 export default class extends PureComponent {
   state = {

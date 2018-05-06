@@ -1,7 +1,6 @@
 import {PureComponent} from 'react';
 import {Radio, Input} from 'antd';
-import rq from './request';
-import ButtonGroup from 'antd/lib/button/button-group';
+import rq from './components/request';
 
 export default class extends PureComponent {
   state = {

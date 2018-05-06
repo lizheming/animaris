@@ -8,10 +8,10 @@ import {render} from 'react-dom';
 
 import Auth from './components/Auth';
 import Header from './components/Header';
-import Home from './components/Home';
-import Edit from './components/Edit';
-import Login from './components/Login';
-import Mock from './components/Mock';
+import Home from './Home';
+import Edit from './Edit';
+import Login from './Login';
+import Mock from './Mock';
 
 global.React = React;
 
@@ -26,7 +26,7 @@ render((
         <Auth.Route path="/mock/:id" component={Mock} />
       </Layout.Content>
       <Layout.Footer style={{textAlign: 'center'}}>
-        Animaris Platform ©2018 Created by Lizheming
+        <a href="https://github.com/lizheming/animaris" target="_blank">Animaris</a> Platform ©2018 Created by <a href="https://github.com/lizheming" target="_blank">@lizheming</a>
       </Layout.Footer>
     </Layout>
   </Router>

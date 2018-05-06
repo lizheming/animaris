@@ -1,8 +1,8 @@
 import { PureComponent } from 'react';
 import {Layout, Button} from 'antd';
-import API from './Api';
-import SideApi from './SideApi';
-import rq from './request';
+import API from './components/Api';
+import SideApi from './components/SideApi';
+import rq from './components/request';
 
 export default class extends PureComponent {
   constructor(props, state) {

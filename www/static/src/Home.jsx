@@ -11,9 +11,9 @@ import {
 } from 'antd';
 import {Link} from 'react-router-dom';
 import Ellipsis from 'ant-design-pro/lib/Ellipsis';
-import AddOrEditModal from './AddOrEditProductModal';
-import UserModal from './AddOrEditUserModal';
-import rq from './request';
+import AddOrEditModal from './components/AddOrEditProductModal';
+import UserModal from './components/AddOrEditUserModal';
+import rq from './components/request';
 
 const { Meta } = Card;
 

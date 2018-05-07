@@ -35,6 +35,9 @@ module.exports = class extends think.Service {
     //   }
     // }
     const args = api.args.length ? api.args.reduce((v, o) => {
+      if (o.name && o.type === 'callback' && !o.value) {
+        o.value = 'fn';
+      }
       v[o.name] = o.value;
       return v;
     }, {}) : {};
@@ -48,7 +51,7 @@ module.exports = class extends think.Service {
       return `console.log('${code}{callback: ${args.callback}}');`;
     }
 
-    return `console.log('${code}${JSON.stringify(args)}');`;
+    return `console.log('${code}${think.isEmpty(args) ? '' : JSON.stringify(args)}');`;
   }
 
   buildRespExample(api) {
@@ -57,7 +60,7 @@ module.exports = class extends think.Service {
       if (api.args.length) {
         const cb = api.args.find(arg => arg.name === 'callback');
         if (cb) {
-          callback = cb.value;
+          callback = cb.value || 'fn';
         }
       }
     }

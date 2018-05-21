@@ -71,7 +71,9 @@ class Mock {
 
 console._log = console.log;
 console.log = function(text, ...args) {
-  new Mock(text);
+  if(typeof text === 'string') {
+    new Mock(text);
+  }
   return console._log(text, ...args);
 };
 

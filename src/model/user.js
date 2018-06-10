@@ -19,7 +19,7 @@ module.exports = class extends think.Mongo {
     return this.where({
       '$or': [
         {name: data.name},
-        {email: data.emal}
+        {email: data.email}
       ]
     }).thenAdd({
       name: data.name,

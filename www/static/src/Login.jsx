@@ -1,6 +1,7 @@
 import {PureComponent} from 'react';
 import {Alert} from 'antd';
 import Login, {UserName, Password, Submit} from 'ant-design-pro/lib/Login';
+import {Link} from 'react-router-dom';
 import rq from './components/request';
 
 export default class extends PureComponent {
@@ -34,7 +35,7 @@ export default class extends PureComponent {
           <UserName name="username" name="credential" placeholder="用户名" />
           <Password name="password" name="password" placeholder="密码" />
           <Submit style={{ width: '100%' }}>登录</Submit>
-          {/* <Link to="/register" style={{ float: 'right' }}>注册</Link> */}
+          <Link to="/register" style={{ float: 'right' }}>注册账户</Link>
         </Login>
       </div>
     );

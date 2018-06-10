@@ -11,6 +11,7 @@ import Header from './components/Header';
 import Home from './Home';
 import Edit from './Edit';
 import Login from './Login';
+import Register from './Register';
 import Mock from './Mock';
 
 global.React = React;
@@ -22,6 +23,7 @@ render((
       <Layout.Content style={{ padding: '30px 50px 0' }}>
         <Auth.Route exact={true} path="/" component={Home} />
         <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
         <Auth.Route path="/d/:id" component={Edit} />
         <Auth.Route path="/mock/:id" component={Mock} />
       </Layout.Content>

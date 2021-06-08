@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/lizheming/animaris">
-    <img width="315" heigth="170" src="https://s5.ssl.qhres.com/static/4a0fac0dd5f0cae2.svg">
+    <img width="315" heigth="170" src="https://s5.ssl.qhres2.com/static/4a0fac0dd5f0cae2.svg">
   </a>  
 
   <h1>Animaris</h1>
